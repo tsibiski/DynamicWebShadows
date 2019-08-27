@@ -1,0 +1,86 @@
+
+/* 
++   This file is part of ShadowCast.
++  
++   Author: Tim Sibiski
++  
++   Trilleon is free software: you can redistribute it and/or modify
++   it under the terms of the GNU Lesser General Public License as published by
++   the Free Software Foundation, either version 3 of the License, or
++   (at your option) any later version.
++
++   This program is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++   GNU Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public License
++   along with this program.  If not, see <http://www.gnu.org/licenses/>.
++*/
+
+root {
+	--shadow-size-positive: 0px;
+	--shadow-size-negative: 0px;
+	--shadow-density: 8px;
+}
+
+.dashboard-link {
+	height: 125px;
+	width: 200px;
+	border: 2px solid grey;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 2em;
+	cursor: pointer;
+	box-shadow: var(--shadow-size-positive) var(--shadow-size-positive) var(--shadow-density) #bbbbbb;
+	margin-bottom: 10px
+}
+
+	.dashboard-link:hover {
+		animation: 1s hover-shadow forwards;
+	}
+
+.shadows-region-0-transition {
+	box-shadow: 0 0 0 #bbbbbb;
+	transition: box-shadow 1000ms;
+}
+
+.shadows-region-1-transition {
+	box-shadow: var(--shadow-size-positive) var(--shadow-size-positive) var(--shadow-density) #bbbbbb;
+	transition: box-shadow 1000ms;
+}
+
+.shadows-region-2-transition {
+	box-shadow: 0 var(--shadow-size-positive) var(--shadow-density) #bbbbbb;
+	transition: box-shadow 1000ms;
+}
+
+.shadows-region-3-transition {
+	box-shadow: var(--shadow-size-negative) var(--shadow-size-positive) var(--shadow-density) #bbbbbb;
+	transition: box-shadow 1000ms;
+}
+
+.shadows-region-4-transition {
+	box-shadow: var(--shadow-size-positive) 0 var(--shadow-density) #bbbbbb;
+	transition: box-shadow 1000ms;
+}
+
+.shadows-region-5-transition {
+	box-shadow: var(--shadow-size-negative) 0 var(--shadow-density) #bbbbbb;
+	transition: box-shadow 1000ms;
+}
+
+.shadows-region-6-transition {
+	box-shadow: var(--shadow-size-positive) var(--shadow-size-negative) var(--shadow-density) #bbbbbb;
+	transition: box-shadow 1000ms;
+}
+
+.shadows-region-7-transition {
+	box-shadow: 0 var(--shadow-size-negative) var(--shadow-density) #bbbbbb;
+	transition: box-shadow 1000ms;
+}
+
+.shadows-region-8-transition {
+	box-shadow: var(--shadow-size-negative) var(--shadow-size-negative) var(--shadow-density) #bbbbbb;
+	transition: box-shadow 1000ms;
+}
