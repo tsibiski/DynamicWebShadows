@@ -24,22 +24,6 @@ root {
 	--shadow-density: 8px;
 }
 
-.dashboard-link {
-	height: 125px;
-	width: 200px;
-	border: 2px solid grey;
-	border-radius: 10px;
-	text-align: center;
-	font-size: 2em;
-	cursor: pointer;
-	box-shadow: var(--shadow-size-positive) var(--shadow-size-positive) var(--shadow-density) #bbbbbb;
-	margin-bottom: 10px
-}
-
-	.dashboard-link:hover {
-		animation: 1s hover-shadow forwards;
-	}
-
 .shadows-region-0-transition {
 	box-shadow: 0 0 0 #bbbbbb;
 	transition: box-shadow 1000ms;
