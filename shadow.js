@@ -17,7 +17,6 @@
 +   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 +*/
 
-
 (function () {
 
 	/*
@@ -57,7 +56,7 @@
 		// calculate pageX/Y - logic taken from jQuery.
 		// (This is to support old IE)
 		if (event.pageX === null && event.clientX !== null) {
-			eventDoc = (event.target && event.target.ownerDocument) || document;
+			eventDoc = event.target && event.target.ownerDocument || document;
 			doc = eventDoc.documentElement;
 			body = eventDoc.body;
 
@@ -110,77 +109,85 @@
 			let el_y = el.offset().top;
 			let el_x_rightmost_point = el_x + width;
 			let el_y_bottommost_point = el_y + height;
-			el.removeClass("shadows-region-0-transition")
-			.removeClass("shadows-region-1-transition")
-			.removeClass("shadows-region-2-transition")
-			.removeClass("shadows-region-3-transition")
-			.removeClass("shadows-region-4-transition")
-			.removeClass("shadows-region-5-transition")
-			.removeClass("shadows-region-6-transition")
-			.removeClass("shadows-region-7-transition")
-			.removeClass("shadows-region-8-transition");
 
 			//Get the closest point on the shadowed element.
-			let pointOfReference = { x: 0, y:0 };
+			let pointOfReference = { x: 0, y: 0 };
+			let newClass = "";
 
 			// Region *0 (Directly over top of the element)
 			if (x > el_x && x < el_x_rightmost_point && y > el_y && y < el_y_bottommost_point) {
 
-				el.addClass("shadows-region-0-transition");
+				newClass = "shadows-region-0-transition";
 				pointOfReference = { x: 0, y: 0 }; //Irrelevant; shadown will not be cast.
 
 			}
 			// Region *1
 			else if (x < el_x && y < el_y) {
 
-				el.addClass("shadows-region-1-transition");
+				newClass = "shadows-region-1-transition";
 				pointOfReference = { x: el_x, y: el_y }; //Top left point of element.
 
 			}// Region *2
 			else if (x > el_x && x < el_x_rightmost_point && y < el_y) {
 
-				el.addClass("shadows-region-2-transition");
+				newClass = "shadows-region-2-transition";
 				let halfwayX = (el_x_rightmost_point - el_x) / 2 + el_x;
 				pointOfReference = { x: halfwayX, y: el_y }; //Center of top side of element.
 
 			}// Region *3
 			else if (x > el_x_rightmost_point && y < el_y) {
 
-				el.addClass("shadows-region-3-transition");
+				newClass = "shadows-region-3-transition";
 				pointOfReference = { x: el_x_rightmost_point, y: el_y }; //Top right point of element.
 
 			}// Region *4
 			else if (x < el_x && y > el_y && y < el_y_bottommost_point) {
 
-				el.addClass("shadows-region-4-transition");
+				newClass = "shadows-region-4-transition";
 				let halfwayY = (el_y_bottommost_point - el_y) / 2 + el_y;
 				pointOfReference = { x: el_x, y: halfwayY }; //Center of left side of element.
 
 			}// Region *5
 			else if (x > el_x_rightmost_point && y > el_y && y < el_y_bottommost_point) {
 
-				el.addClass("shadows-region-5-transition");
+				newClass = "shadows-region-5-transition";
 				let halfwayY = (el_y_bottommost_point - el_y) / 2 + el_y;
 				pointOfReference = { x: el_x_rightmost_point, y: halfwayY }; //Center of right side of element.
 
 			}// Region *6
 			else if (x < el_x && y > el_y_bottommost_point) {
 
-				el.addClass("shadows-region-6-transition");
+				newClass = "shadows-region-6-transition";
 				pointOfReference = { x: el_x, y: el_y_bottommost_point}; //Bottom left point of element.
 
 			}// Region *7
 			else if (x > el_x && x < el_x_rightmost_point && y > el_y_bottommost_point) {
 
-				el.addClass("shadows-region-7-transition");
+				newClass = "shadows-region-7-transition";
 				let halfwayX = (el_x_rightmost_point - el_x) / 2 + el_x;
 				pointOfReference = { x: halfwayX, y: el_y_bottommost_point }; //Center of bottom side of element.
 
 			}// Region *8
 			else if (x > el_x_rightmost_point && y > el_y_bottommost_point) {
 
-				el.addClass("shadows-region-8-transition");
+				newClass = "shadows-region-8-transition";
 				pointOfReference = { x: el_x_rightmost_point, y: el_y_bottommost_point }; //Bottom right point of element.
+
+			}
+
+			//It's not necessary, but to avoid any possible issues cross-browser, we will only remove and add classes if the classes needs to be changed.
+			if (!el.hasClass(newClass)) {
+
+				el.removeClass("shadows-region-0-transition")
+				  .removeClass("shadows-region-1-transition")
+				  .removeClass("shadows-region-2-transition")
+				  .removeClass("shadows-region-3-transition")
+				  .removeClass("shadows-region-4-transition")
+				  .removeClass("shadows-region-5-transition")
+				  .removeClass("shadows-region-6-transition")
+				  .removeClass("shadows-region-7-transition")
+				  .removeClass("shadows-region-8-transition")
+				  .addClass(newClass);
 
 			}
 
