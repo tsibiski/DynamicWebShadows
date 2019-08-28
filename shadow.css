@@ -24,47 +24,42 @@ root {
 	--shadow-density: 8px;
 }
 
+.shadowed {
+	transition: box-shadow 1000ms;
+}
+
 .shadows-region-0-transition {
 	box-shadow: 0 0 0 #bbbbbb;
-	transition: box-shadow 1000ms;
 }
 
 .shadows-region-1-transition {
 	box-shadow: var(--shadow-size-positive) var(--shadow-size-positive) var(--shadow-density) #bbbbbb;
-	transition: box-shadow 1000ms;
 }
 
 .shadows-region-2-transition {
 	box-shadow: 0 var(--shadow-size-positive) var(--shadow-density) #bbbbbb;
-	transition: box-shadow 1000ms;
 }
 
 .shadows-region-3-transition {
 	box-shadow: var(--shadow-size-negative) var(--shadow-size-positive) var(--shadow-density) #bbbbbb;
-	transition: box-shadow 1000ms;
 }
 
 .shadows-region-4-transition {
 	box-shadow: var(--shadow-size-positive) 0 var(--shadow-density) #bbbbbb;
-	transition: box-shadow 1000ms;
 }
 
 .shadows-region-5-transition {
 	box-shadow: var(--shadow-size-negative) 0 var(--shadow-density) #bbbbbb;
-	transition: box-shadow 1000ms;
 }
 
 .shadows-region-6-transition {
 	box-shadow: var(--shadow-size-positive) var(--shadow-size-negative) var(--shadow-density) #bbbbbb;
-	transition: box-shadow 1000ms;
 }
 
 .shadows-region-7-transition {
 	box-shadow: 0 var(--shadow-size-negative) var(--shadow-density) #bbbbbb;
-	transition: box-shadow 1000ms;
 }
 
 .shadows-region-8-transition {
 	box-shadow: var(--shadow-size-negative) var(--shadow-size-negative) var(--shadow-density) #bbbbbb;
-	transition: box-shadow 1000ms;
 }
