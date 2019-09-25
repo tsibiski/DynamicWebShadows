@@ -25,7 +25,7 @@ root {
 }
 
 .shadowed {
-	transition: box-shadow 1000ms;
+	transition: box-shadow 600ms;
 }
 
 .shadows-region-0-transition {
