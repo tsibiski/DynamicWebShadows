@@ -33,9 +33,9 @@
 	  These values make the shadow appear to be "longer" or "larger". The higher the value, 
 	  the farther from the element the shadows will cast.
 	*/
-	var SHORT_SHADOW_PIXEL_SIZE = 5;
-	var MEDIUM_SHADOW_PIXEL_SIZE = 10;
-	var LONG_SHADOW_PIXEL_SIZE = 15;
+	var SHORT_SHADOW_PIXEL_SIZE = 7;
+	var MEDIUM_SHADOW_PIXEL_SIZE = 12;
+	var LONG_SHADOW_PIXEL_SIZE = 17;
 
 	/*
 	  These values determine how far from the shadowed elements the cursor should be before 
